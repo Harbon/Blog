@@ -1,5 +1,5 @@
 #!/bin/sh
-WEB_PATH='~/Desktop/Blog_file/'
+WEB_PATH='/Home/Harbon/blog_file'
 WEB_USER='Harbon'
 WEB_USERGROUP='Harbon'
 
@@ -11,27 +11,26 @@ git reset --hard origin/master
 git clean -df
 git pull origin master
 if [$? -eq 1];then
-    echo 'git pull blog error'
+    echo 'git pull blog error' | mail -s 'server robot report' qq@harbon.link
   else
     git checkout master
-    echo "changing permissions..."
     chown -R $WEB_USER:$WEB_USERGROUP $WEB_PATH
-    echo "begin build blog"
-    echo $PWD
     cargo build
     if [ -e ./target/debug/blog ];then
-      set blog_pid = lsof -i:3000|tail -n 1|cut -d ' ' -f 5
-      echo "start kill pid $blog_pid"
+      blog_pid=`lsof -i:3000|tail -n 1|cut -d ' ' -f 5`
       kill $blog_pid
+      if [ $? -eq 1];then
+        echo 'kill blog_pid error' | mail -s 'server robot report' qq@harbon.link
+      fi
       cd target/debug/
       ./blog &
       if [ $? -eq 0 ];then
-        echo 'Your blog has been updated and run successfully'
+        echo 'Your blog has been updated and run successfully' | mail -s 'server robot report' qq@harbon.link
       else
-        echo 'run blog error please manipulate it'
+        echo 'run blog error please manipulate it' | mail -s 'server robot report' qq@harbon.link
       fi
     else
-      echo 'cargo build blog error no target directory'
+      echo 'cargo build blog error no target directory' | mail -s 'server robot report' qq@harbon.link
     fi
 
 

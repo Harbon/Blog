@@ -43,11 +43,8 @@ impl BaseStruct<Doc> for Doc {
         Some("docs".to_string())
     }
     fn new (id: &i32, file_name: &str) -> Option<Doc>{
-        println!("id222:{}, file_name:{}", id, file_name);
         let info: Vec<&str> = file_name.split(|c| c == '_' || c=='.').collect();
-        println!("name:{}", info[0]);
-        let url = "/Users/harbon/Desktop/Rust/Blog_file/src/static/docs/".to_string() + file_name;
-        println!("url:{}", url);
+        let url = "/home/Harbon/Blog/src/static/docs/".to_string() + file_name;
         let file_path: &Path = Path::new(&url);
         let mut file: File = File::open(file_path).unwrap();
         let mut content: String = String::new();

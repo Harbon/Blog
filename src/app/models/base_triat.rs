@@ -23,7 +23,7 @@ pub type FileResult<T> = Result<T, FileErr>;
     fn get_all() -> Result<Vec<T>,String> {
 
         let dir_name: String = T::get_type().unwrap();
-        let url = "/Users/harbon/Desktop/Rust/Blog_file/src/static/".to_string() + &dir_name;
+        let url = "/home/Harbon/Blog/src/static/".to_string() + &dir_name;
         let static_path: &Path = Path::new(&url);
         let read_dir: ReadDir = read_dir(static_path).unwrap();
         let mut count = 0i32;

@@ -39,7 +39,6 @@ impl BaseStruct<Music> for Music {
         let info: Vec<&str> = file_name.split(|c| c=='_' || c=='.').collect();
         let url: String = "/static/musics/".to_string() + file_name;
         let icon_url: String = "/static/music_icons/".to_string() + info[0] + ".jpg";
-        println!("url:{}, icon_url:{}", url, icon_url);
         let music = Music {
             id: Some(id.clone()),
             title: Some(info[0].to_string()),
