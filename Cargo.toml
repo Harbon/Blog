@@ -1,0 +1,39 @@
+[package]
+name = "blog"
+version = "0.1.0"
+authors = ["Harbon <harbon@lydiabox.com>"]
+[dependencies.iron]
+version = "*"
+
+[dependencies.urlencoded]
+
+git = "https://github.com/iron/urlencoded.git"
+
+[dependencies.logger]
+
+git = "https://github.com/iron/logger.git"
+
+[dependencies.router]
+
+git = "https://github.com/iron/router.git"
+
+[dependencies.mount]
+
+git = "https://github.com/iron/mount.git"
+
+[dependencies.staticfile]
+
+git = "https://github.com/iron/staticfile.git"
+
+[dependencies.bodyparser]
+
+git = "https://github.com/iron/body-parser.git"
+
+[dependencies]
+rustc-serialize = "0.3"
+mysql = "*"
+lazy_static = "0.1.*"
+persistent="*"
+handlebars-iron="*"
+chrono = "*"
+hoedown = "*"

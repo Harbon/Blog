@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Harbon</title>
+<meta name="description" content="">
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link rel="stylesheet" href="/static/css/main.css">
+<link rel="stylesheet" href="/static/css/content.css">
+
+<body>
+
+<div id="page-wrap">
+
+	<!-- Outter Glow is purely aesthetic. -->
+	<div id="outter-glow">
+
+		<!-- HEADER START -->
+		<div id="header" class="clearfix">
+
+
+			<div id="header-content" class="clearfix">
+				<div id="toolbar">
+					<!-- #tools -->
+					<div id="search">
+						<form action="./blog_tamplate_files/blog_tamplate.html" method="get">
+							<input type="text" name="q" value="搜索" onfocus="if(this.value==this.defaultValue)this.value=&#39;&#39;;" onblur="if(this.value==&#39;&#39;)this.value=this.defaultValue;">
+						</form>
+					</div>
+					<!-- #search -->
+				</div>
+				<!-- #toolbar -->
+
+				<a href="./blog_tamplate_files/blog_tamplate.html">
+				<div id="portrait-container">
+					 <img style="width:244px;height:235px;"src="/static/picture/gravatar.png">
+					<!-- #portrait-frame -->
+				</div>
+				<!-- #portrait-container -->
+				</a>
+				<div id="meta">
+					<h1><strong>Harbon</strong></h1>
+					<h2>Sometimes it's the very people who no one imagines anything of who do the things no one can imagine.</h2>
+				</div>
+				<!-- #meta -->
+
+			</div>
+			<!-- #header-content -->
+
+		</div>
+		<!-- #header -->
+		<!-- HEADER END -->
+
+
+		<!-- CONTENT START -->
+		<div id="content" class="clearfix">
+
+			<!-- NAVIGATION START -->
+
+			<div id="nav">
+
+				<a href="/">首页</a>
+
+				<a href="/docs" class="current">文章</a>
+				<a href="/musics">音乐</a>
+
+				<a href="/pictures">相册</a>
+
+			</div>
+			<!-- #nav-bar -->
+
+			<!-- NAVIGATION END -->
+
+
+			<!-- TMBLG START -->
+			<div id="tmblg" class="rich-content">
+
+
+
+				<!--循环文章-->
+
+					{{#each docs}}
+					<div class="divider" style="margin-top: 0px;"></div>
+
+					<!--图片类型-->
+
+
+
+					<!--文字类型-->
+
+						<div class="post text">
+							<div class="rte">
+								{{{content}}}
+							</div>
+							<!-- .rte -->
+						</div>
+						<!-- .post text -->
+					<div class="post-meta" style="margin-bottom: 48px;">
+						<a class="icon meta-date" href="#" title="查看全文">{{date}}</a>
+
+						<a class="icon meta-notes" href="#">0 喜欢</a>
+					</div>
+					<!-- .post-meta -->
+
+			<!-- #tmblg -->
+			{{/each}}
+			<!-- TMBLG END -->
+
+			<!--判断是否有分页-->
+
+<div class="divider" style="margin-top: 0px;"></div>
+			<!-- FOOTER START -->
+			<div id="footer">
+					<p id="copyright">
+					© Harbon<span class="split">|</span>
+					联系方式：harbon@lydiabox.com
+					</p>
+			</div>
+			<!-- FOOTER END -->
+
+		</div>
+		<!-- CONTENT END -->
+
+	</div>
+	<!-- #outter-glow -->
+
+</div>
