@@ -33,6 +33,6 @@ pub fn run () {
     middleware.link(Music::init_data());
     middleware.link(Picture::init_data());
     middleware.link_after(helpers::template_engine_helper::init_template_engine());
-    Iron::new(middleware).http("localhost:3000").unwrap();
+    Iron::new(middleware).http("121.40.132.139:3000").unwrap();
     println!("stop run app ");
 }
