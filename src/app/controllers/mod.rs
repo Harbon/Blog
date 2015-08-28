@@ -22,8 +22,10 @@ use chrono::*;
 
 //主页
 pub fn get_main (_req: &mut Request) -> IronResult<Response> {
-
-    Ok(Response::with((status::Ok, "success")))
+    let pictures: Arc<Vec<Picture>> = _req.get::<Read<Picture>>().unwrap();
+    let mut tree_map: BTreeMap<String, Json> = BTreeMap::new();
+    tree_map.insert("pictures".to_string(), pictures.to_json());
+    Ok(Response::with((status::Ok, Template::new("main", tree_map))))
 }
 //获取文章列表
 pub fn get_docs_list (_req: &mut Request) -> IronResult<Response> {

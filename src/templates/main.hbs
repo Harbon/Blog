@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/static/css/main.css">
 <link rel="stylesheet" href="/static/css/content.css">
-
+</head>
 <body>
 
 <div id="page-wrap">
@@ -67,10 +67,10 @@
 
 				<a href="/">首页</a>
 
-				<a href="/docs" class="current">文章</a>
-				<a href="/musics">音乐</a>
+				<a href="/docs">文章</a>
+				<a href="/musics" >音乐</a>
 
-				<a href="/pictures">相册</a>
+				<a href="/pictures" class="current">相册</a>
 
 			</div>
 			<!-- #nav-bar -->
@@ -85,7 +85,7 @@
 
 				<!--循环文章-->
 
-					{{#each docs}}
+
 					<div class="divider" style="margin-top: 0px;"></div>
 
 					<!--图片类型-->
@@ -94,12 +94,23 @@
 
 					<!--文字类型-->
 
-						<div class="post text">
-							<div class="rte">
-								{{{content}}}
+					<div class="post audio" style="width:900px;height:600px">
+						<div class="audio-box clearfix hasArtwork">
+							<div class="artwork">
+								<!-- <a href="#"> -->
+									<iframe width="850px" height="550px" src="http://www.webhek.com/misc/species-in-pieces">
+								<!-- </a> -->
 							</div>
-							<!-- .rte -->
+							<!-- .artwork -->
+
+
+							<!-- .audio-content rte -->
+
 						</div>
+						<!-- .audio-box -->
+						<div class="audio-copy rte"><p>呼唤~~</p></div>
+						<!-- .audio-copy rte -->
+					</div>
 						<!-- .post text -->
 					<div class="post-meta" style="margin-bottom: 48px;">
 						<a class="icon meta-date" href="#" title="查看全文">{{date}}</a>
@@ -109,6 +120,7 @@
 					<!-- .post-meta -->
 
 			<!-- #tmblg -->
+{{#each pictures}}
 			{{/each}}
 			<!-- TMBLG END -->
 
@@ -131,3 +143,5 @@
 	<!-- #outter-glow -->
 
 </div>
+</div>
+</body>
