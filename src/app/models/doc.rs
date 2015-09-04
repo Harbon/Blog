@@ -44,7 +44,7 @@ impl BaseStruct<Doc> for Doc {
     }
     fn new (id: &i32, file_name: &str) -> Option<Doc>{
         let info: Vec<&str> = file_name.split(|c| c == '_' || c=='.').collect();
-        let url = "/home/Harbon/Blog/src/static/docs/".to_string() + file_name;
+        let url = "/home/harbon/Blog/src/static/docs/".to_string() + file_name;
         let file_path: &Path = Path::new(&url);
         let mut file: File = File::open(file_path).unwrap();
         let mut content: String = String::new();

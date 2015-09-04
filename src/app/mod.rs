@@ -27,7 +27,7 @@ pub fn run () {
     println!("start run app ");
     let mut mount = Mount::new();
     mount.mount("/", routes::all());
-    mount.mount("/static", Static::new(Path::new("/home/Harbon/Blog/src/static/")));
+    mount.mount("/static", Static::new(Path::new("/home/harbon/Blog/src/static/")));
     let mut middleware:Chain = Chain::new(mount);
     middleware.link(Doc::init_data());
     middleware.link(Music::init_data());
