@@ -22,16 +22,22 @@ use chrono::*;
 
 //主页
 pub fn get_main (_req: &mut Request) -> IronResult<Response> {
-    let pictures: Arc<Vec<Picture>> = _req.get::<Read<Picture>>().unwrap();
+    let pictures: Arc<Vec<Picture>> = match _req.get::<Read<Picture>>() {
+        Ok(pictures) => pictures,
+        Err(_) => return Ok(Response::with((status::Ok, "error occured"))),
+    };
     let mut tree_map: BTreeMap<String, Json> = BTreeMap::new();
     tree_map.insert("pictures".to_string(), pictures.to_json());
     Ok(Response::with((status::Ok, Template::new("main", tree_map))))
 }
 //获取文章列表
 pub fn get_docs_list (_req: &mut Request) -> IronResult<Response> {
-    let current_time: String = UTC::now().format("%y-%m-%d").to_string();
-    println!("current_time:{}", current_time);
-    let docs: Arc<Vec<Doc>> = _req.get::<Read<Doc>>().unwrap();
+    // let current_time: String = UTC::now().format("%y-%m-%d").to_string();
+    // println!("current_time:{}", current_time);
+    let docs: Arc<Vec<Doc>> = match _req.get::<Read<Doc>>() {
+        Ok(docs) => docs,
+        Err(_) => return Ok(Response::with((status::Ok, "error occured"))),
+    };
     let mut tree_map: BTreeMap<String, Json> = BTreeMap::new();
     tree_map.insert("docs".to_string(), docs.to_json());
     Ok(Response::with((status::Ok, Template::new("docs", tree_map))))
@@ -46,7 +52,10 @@ pub fn get_docs_list (_req: &mut Request) -> IronResult<Response> {
 
 //获取音乐列表
 pub fn get_musics_list (_req: &mut Request) -> IronResult<Response> {
-    let musics: Arc<Vec<Music>> = _req.get::<Read<Music>>().unwrap();
+    let musics: Arc<Vec<Music>> = match _req.get::<Read<Music>>() {
+        Ok(musics) => musics,
+        Err(_) => return Ok(Response::with((status::Ok, "error occured"))),
+    };
     let mut tree_map: BTreeMap<String, Json> = BTreeMap::new();
     tree_map.insert("musics".to_string(), musics.to_json());
     Ok(Response::with((status::Ok, Template::new("musics", tree_map))))
@@ -54,7 +63,10 @@ pub fn get_musics_list (_req: &mut Request) -> IronResult<Response> {
 
 //获取图片列表
 pub fn get_pictures_list (_req: &mut Request) -> IronResult<Response> {
-    let pictures: Arc<Vec<Picture>> = _req.get::<Read<Picture>>().unwrap();
+    let pictures: Arc<Vec<Picture>> = match _req.get::<Read<Picture>>() {
+        Ok(pictures) => pictures,
+        Err(_) => return Ok(Response::with((status::Ok, "error occured"))),
+    };
     let mut tree_map: BTreeMap<String, Json> = BTreeMap::new();
     tree_map.insert("pictures".to_string(), pictures.to_json());
     Ok(Response::with((status::Ok, Template::new("pictures", tree_map))))

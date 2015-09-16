@@ -46,9 +46,9 @@ impl BaseStruct<Doc> for Doc {
         let info: Vec<&str> = file_name.split(|c| c == '_' || c=='.').collect();
         let url = "/home/harbon/Blog/src/static/docs/".to_string() + file_name;
         let file_path: &Path = Path::new(&url);
-        let mut file: File = File::open(file_path).unwrap();
+        let mut _file: File = File::open(file_path).unwrap();
         let mut content: String = String::new();
-        file.read_to_string(&mut content);
+        _file.read_to_string(&mut content);
         let doc_content = Markdown::new(&content);
         let mut html = Html::new(Flags::empty(),0);
         let html_content = html.render(&doc_content).to_str().unwrap().to_string();
